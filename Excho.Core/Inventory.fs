@@ -19,6 +19,7 @@ type Inbox<'t> = 't IInventory
 type Outbox<'t> = 't IInventory
 type Transfer<'t> = ('t Outbox * 't Quantitizable) * 't Inbox
 
+[<AutoOpen>]
 module Inventory =
   let processTransfer (((src, (item, volumn)), dest) : 't Transfer) = 
     dest.Load(src.Unload(item, volumn))

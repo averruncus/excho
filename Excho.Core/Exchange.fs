@@ -1,7 +1,6 @@
 ﻿namespace Excho.Market
 
 open System
-open Inventory
 
 type IExchange<'m, 'p> =
   abstract member Merchandise : HalfExchange<'m, 'p> seq
@@ -12,7 +11,7 @@ and ExchangeChannel<'m, 'p> = Outbox<'m> * Inbox<'p>
 type Exchange<'m, 'p> = HalfExchange<'m, 'p> * HalfExchange<'p, 'm>
 
 module Exchange =
-  let toTransfers : Exchange<'m, 'p> seq -> Transfer<'m> seq * Transfer<'p> seq = fun exchanges ->
+  let toTransfers (exchanges : Exchange<'m, 'p> seq) =
     let fullTransfers =
       exchanges
       |> Seq.map (fun ((qm, (om, ip)), (qp, (op, im))) ->

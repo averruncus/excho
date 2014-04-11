@@ -2,7 +2,6 @@
 
 open System
 open Unchecked
-open Inventory
 
 type MoneyKeeper = {
   Id : string
