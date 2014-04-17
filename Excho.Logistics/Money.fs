@@ -1,8 +1,8 @@
-﻿namespace Excho.Market
+﻿namespace Excho.Logistics
 
 type Money = {
   Amount : double
   Currency : string
-  Source : IInventory<Money>
+  Source : Money IInventory
 }
 

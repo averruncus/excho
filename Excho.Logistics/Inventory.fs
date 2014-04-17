@@ -1,4 +1,4 @@
-﻿namespace Excho.Market
+﻿namespace Excho.Logistics
 
 type IInventory =
   abstract member Unload : obj * Volumn -> Package

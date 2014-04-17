@@ -1,4 +1,4 @@
-﻿namespace Excho.Market
+﻿namespace Excho.Trading
 
 open System
 open Unchecked

@@ -5,12 +5,12 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>b4bf3756-c413-49ad-8556-da86d3afee4f</ProjectGuid>
+    <ProjectGuid>60dadf7b-0ac3-4fb8-b2d3-583ddded0a34</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Excho.Security</RootNamespace>
-    <AssemblyName>Excho.Security</AssemblyName>
+    <RootNamespace>Excho.Trading</RootNamespace>
+    <AssemblyName>Excho.Trading</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <Name>Excho.Core</Name>
+    <Name>Excho.Trading</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,7 +20,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
-    <DocumentationFile>bin\Debug\Excho.Security.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\Excho.Trading.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,7 +29,7 @@
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
-    <DocumentationFile>bin\Release\Excho.Security.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\Excho.Trading.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FSharp.Data.TypeProviders" />
@@ -45,10 +45,22 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Db.fs" />
-    <Compile Include="Actor.fs" />
-    <Compile Include="SecurityControl.fs" />
+    <Compile Include="Exchange.fs" />
+    <Compile Include="Sale.fs" />
+    <Compile Include="Order.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Excho.Core\Excho.Core.fsproj">
+      <Name>Excho.Core</Name>
+      <Project>{b4bf3756-c413-49ad-8556-da86d3afee4f}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Excho.Logistics\Excho.Logistics.fsproj">
+      <Name>Excho.Logistics</Name>
+      <Project>{19dc4aab-4e7b-4402-b8b2-e25022043d89}</Project>
+      <Private>True</Private>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>

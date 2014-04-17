@@ -5,12 +5,12 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>b4bf3756-c413-49ad-8556-da86d3afee4f</ProjectGuid>
+    <ProjectGuid>19dc4aab-4e7b-4402-b8b2-e25022043d89</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Excho.Security</RootNamespace>
-    <AssemblyName>Excho.Security</AssemblyName>
+    <RootNamespace>Excho.Core</RootNamespace>
+    <AssemblyName>Excho.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <Name>Excho.Core</Name>
+    <Name>Excho.Logistics</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,7 +20,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
-    <DocumentationFile>bin\Debug\Excho.Security.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\Excho.Core.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,7 +29,7 @@
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
-    <DocumentationFile>bin\Release\Excho.Security.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\Excho.Core.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FSharp.Data.TypeProviders" />
@@ -45,10 +45,19 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Db.fs" />
-    <Compile Include="Actor.fs" />
-    <Compile Include="SecurityControl.fs" />
+    <Compile Include="Inventory.fs" />
+    <Compile Include="Product.fs" />
+    <Compile Include="ProductInventory.fs" />
+    <Compile Include="Money.fs" />
+    <Compile Include="MoneyKeeper.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Excho.Core\Excho.Core.fsproj">
+      <Name>Excho.Core</Name>
+      <Project>{b4bf3756-c413-49ad-8556-da86d3afee4f}</Project>
+      <Private>True</Private>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
