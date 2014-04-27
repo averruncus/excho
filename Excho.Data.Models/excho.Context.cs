@@ -32,7 +32,8 @@ namespace Excho.Data.Models
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<Posession> Posessions { get; set; }
         public DbSet<Sale> Sales { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Possession> Possessions { get; set; }
     }
 }

@@ -9,6 +9,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Excho.Logistics", "Excho.Lo
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Excho.Core", "Excho.Core\Excho.Core.fsproj", "{B4BF3756-C413-49AD-8556-DA86D3AFEE4F}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Excho.Registration", "Excho.Registration\Excho.Registration.fsproj", "{1670A397-C81D-4B49-9BA3-C68F1E31AD4A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{B4BF3756-C413-49AD-8556-DA86D3AFEE4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4BF3756-C413-49AD-8556-DA86D3AFEE4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4BF3756-C413-49AD-8556-DA86D3AFEE4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1670A397-C81D-4B49-9BA3-C68F1E31AD4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1670A397-C81D-4B49-9BA3-C68F1E31AD4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1670A397-C81D-4B49-9BA3-C68F1E31AD4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1670A397-C81D-4B49-9BA3-C68F1E31AD4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

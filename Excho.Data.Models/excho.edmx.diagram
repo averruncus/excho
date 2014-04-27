@@ -12,8 +12,9 @@
         <EntityTypeShape EntityType="Provider.OrderDetail" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Provider.Payment" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Provider.Product" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Provider.Posession" Width="1.5" PointX="7.125" PointY="3.75" />
         <EntityTypeShape EntityType="Provider.Sale" Width="1.5" PointX="9.25" PointY="1.375" />
+        <EntityTypeShape EntityType="Provider.User" Width="1.5" PointX="11.625" PointY="0.75" />
+        <EntityTypeShape EntityType="Provider.Possession" Width="1.5" PointX="7.25" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

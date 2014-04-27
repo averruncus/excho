@@ -49,6 +49,7 @@
     <Compile Include="Inventory.fs" />
     <Compile Include="Product.fs" />
     <Compile Include="ProductInventory.fs" />
+    <Compile Include="ProductPossession.fs" />
     <Compile Include="Money.fs" />
     <Compile Include="MoneyKeeper.fs" />
   </ItemGroup>

@@ -79,7 +79,7 @@
     <Compile Include="Payment.cs">
       <DependentUpon>excho.tt</DependentUpon>
     </Compile>
-    <Compile Include="Posession.cs">
+    <Compile Include="Possession.cs">
       <DependentUpon>excho.tt</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
@@ -87,6 +87,9 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sale.cs">
+      <DependentUpon>excho.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
       <DependentUpon>excho.tt</DependentUpon>
     </Compile>
   </ItemGroup>

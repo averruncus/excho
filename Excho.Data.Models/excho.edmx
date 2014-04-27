@@ -12,9 +12,10 @@
           <EntitySet Name="Order" EntityType="Provider.Store.Order" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="OrderDetails" EntityType="Provider.Store.OrderDetails" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Payment" EntityType="Provider.Store.Payment" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Posession" EntityType="Provider.Store.Posession" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Possession" EntityType="Provider.Store.Possession" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Product" EntityType="Provider.Store.Product" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Sale" EntityType="Provider.Store.Sale" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="Provider.Store.User" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
         <EntityType Name="Account">
           <Key>
@@ -72,7 +73,7 @@
           <Property Name="Volume" Type="float" Nullable="false" />
           <Property Name="Source" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="Posession">
+        <EntityType Name="Possession">
           <Key>
             <PropertyRef Name="Property" />
             <PropertyRef Name="Inventory" />
@@ -109,6 +110,17 @@
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="ModifiedDate" Type="datetime" />
         </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Firstname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="150" />
+          <Property Name="Image" Type="nvarchar" MaxLength="100" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -121,8 +133,9 @@
           <EntitySet Name="OrderDetails" EntityType="Provider.OrderDetail" />
           <EntitySet Name="Payments" EntityType="Provider.Payment" />
           <EntitySet Name="Products" EntityType="Provider.Product" />
-          <EntitySet Name="Posessions" EntityType="Provider.Posession" />
           <EntitySet Name="Sales" EntityType="Provider.Sale" />
+          <EntitySet Name="Users" EntityType="Provider.User" />
+          <EntitySet Name="Possessions" EntityType="Provider.Possession" />
         </EntityContainer>
         <EntityType Name="Account">
           <Key>
@@ -191,15 +204,6 @@
           <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityType Name="Posession">
-          <Key>
-            <PropertyRef Name="Property" />
-            <PropertyRef Name="Inventory" />
-          </Key>
-          <Property Type="Int32" Name="Property" Nullable="false" />
-          <Property Type="Int32" Name="Inventory" Nullable="false" />
-          <Property Type="Int32" Name="Volume" />
-        </EntityType>
         <EntityType Name="Sale">
           <Key>
             <PropertyRef Name="Id" />
@@ -216,6 +220,26 @@
           <Property Type="Int32" Name="CreatedBy" Nullable="false" />
           <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="3" />
           <Property Type="DateTime" Name="ModifiedDate" Precision="3" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Firstname" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Lastname" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Image" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="ModifiedDate" Precision="3" />
+        </EntityType>
+        <EntityType Name="Possession">
+          <Key>
+            <PropertyRef Name="Property" />
+            <PropertyRef Name="Inventory" />
+          </Key>
+          <Property Type="Int32" Name="Property" Nullable="false" />
+          <Property Type="Int32" Name="Inventory" Nullable="false" />
+          <Property Type="Int32" Name="Volume" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -295,15 +319,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Posessions">
-            <EntityTypeMapping TypeName="Provider.Posession">
-              <MappingFragment StoreEntitySet="Posession">
-                <ScalarProperty Name="Volume" ColumnName="Volume" />
-                <ScalarProperty Name="Inventory" ColumnName="Inventory" />
-                <ScalarProperty Name="Property" ColumnName="Property" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Sales">
             <EntityTypeMapping TypeName="Provider.Sale">
               <MappingFragment StoreEntitySet="Sale">
@@ -319,6 +334,27 @@
                 <ScalarProperty Name="Volume" ColumnName="Volume" />
                 <ScalarProperty Name="Merchandise" ColumnName="Merchandise" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Provider.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Possessions">
+            <EntityTypeMapping TypeName="Provider.Possession">
+              <MappingFragment StoreEntitySet="Possession">
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
+                <ScalarProperty Name="Inventory" ColumnName="Inventory" />
+                <ScalarProperty Name="Property" ColumnName="Property" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

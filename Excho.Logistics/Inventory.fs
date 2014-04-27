@@ -17,7 +17,8 @@ and Quantitizable<'t> = 't * Volumn
 
 type Inbox<'t> = 't IInventory
 type Outbox<'t> = 't IInventory
-type Transfer<'t> = ('t Outbox * 't Quantitizable) * 't Inbox
+type Possession<'t> = 't Source * 't Quantitizable
+type Transfer<'t> = 't Possession * 't Inbox
 
 [<AutoOpen>]
 module Inventory =

@@ -23,26 +23,10 @@ module SecurityControl =
     member this.Authorities = Seq.empty<Principal>
   type Actor with
     static member CurrentPrincipal =    
-      let p =
-        Thread.CurrentPrincipal
-        |> box
-        |> unbox<ExchoPrincipal>
+      let p = Thread.CurrentPrincipal :?> ExchoPrincipal
       p.Principal
 
-  let tryAuthenticate id factor =
-    let models = Repository.Models
-    let lookup =
-      query {
-        for acc in models.Accounts do
-        join auth in models.Authentications on (acc.Id = auth.Account)
-        where (auth.Id = id && auth.Factor = factor)
-        select acc
-        take 1
-      }
-      |> Seq.map Actor.wrap
-      |> Seq.toArray
-
-    if lookup |> (not << Seq.isEmpty) then Some (lookup |> Seq.head) else None
+  let tryAuthenticate id factor = None
 
   let authenticate id factor =
     match tryAuthenticate id factor with

@@ -12,10 +12,13 @@ namespace Excho.Data.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Posession
+    public partial class User
     {
-        public int Property { get; set; }
-        public int Inventory { get; set; }
-        public Nullable<int> Volume { get; set; }
+        public int Id { get; set; }
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
+        public string Address { get; set; }
+        public string Image { get; set; }
+        public Nullable<System.DateTime> ModifiedDate { get; set; }
     }
 }

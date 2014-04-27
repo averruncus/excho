@@ -2,14 +2,21 @@
 
 open System.Configuration
 open System.Data
+open System.Collections
+open System.Collections.Generic
+open System.Data.Objects
 open System.Data.Entity
 open Microsoft.FSharp.Data.TypeProviders
 open System.Data.EntityClient
 open System.Data.Metadata.Edm
 open System.Data.Common
 
+type IPersistable =
+  abstract member Repository : IRepository
+  abstract member Data : obj
+
 [<AutoOpen>]
-module internal DbExts =
+module private InternalDbExts =
   [<Literal>]
   let CON_STR_NAME = "excho"
   type ConfigurationManager with
@@ -27,17 +34,22 @@ module Db =
     let metaData = MetadataWorkspace(resourceArray, assemblyList)
 
     new EntityConnection(metaData, dbConnection)
-
   let getDefaultConnection() = getConnection (ConfigurationManager.ExchoConnectionString)
+
+  let save (data : IPersistable) =
+    let c = data.Repository
+    c.Commit(data.Data)
+  let delete (data : IPersistable) =
+    let c = data.Repository
+    c.Delete(data.Data)
 
 type internal Repository = EdmxFile<"excho.edmx", ResolutionFolder = "../Excho.Data.Models/">
 
 [<AutoOpen>]
-module InternalDb =
-  let private getModels() = new Repository.Provider.Entities(Db.getDefaultConnection())
-  let mutable private models = getModels()
-  let reset() = models <- getModels()
-
-  type Repository with
-    static member internal Models = models
-
+module internal InternalDb =
+  type internal Types = Repository.Provider
+  type internal Containers = Repository.Provider.Entities
+  let private getDbContainers() = new Repository.Provider.Entities(Db.getDefaultConnection())
+  let mutable private _dbContainers = getDbContainers()
+  let internal dbContainers = _dbContainers
+  let reset() = _dbContainers <- getDbContainers()

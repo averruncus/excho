@@ -11,11 +11,15 @@ open System.Data.Common
 type internal Repository = EdmxFile<"excho.edmx", ResolutionFolder = "../Excho.Data.Models/">
 
 [<AutoOpen>]
-module InternalDb =
-  let private getModels() = new Repository.Provider.Entities(Db.getDefaultConnection())
-  let mutable private models = getModels()
-  let reset() = models <- getModels()
+module internal InternalDb =
+  type internal Types = Repository.Provider
+  type internal Containers = Repository.Provider.Entities
+  let private getDbContainers() = new Repository.Provider.Entities(Db.getDefaultConnection())
+  let mutable private _dbContainers = getDbContainers()
+  let internal dbContainers = _dbContainers
+  let reset() = _dbContainers <- getDbContainers()
 
-  type Repository with
-    static member internal Models = models
-
+  type DbProduct = Types.Product
+  type DbInventory = Types.Inventory
+  type DbAccount = Types.Account
+  type DbPossession = Types.Possession

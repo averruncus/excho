@@ -40,8 +40,8 @@ module Sale =
   let private wrap<'m, 'p> (sale : Repository.Provider.Sale, acc : Repository.Provider.Account) =
     defaultof<Sale<'m, 'p>>
   let getByOwner (owner : IActor) = 
-    let sales = Repository.Models.Sales
-    let accounts = Repository.Models.Accounts
+    let sales = dbContainers.Sales
+    let accounts = dbContainers.Accounts
     query {
       for sale in sales do
       join account in accounts on (sale.CreatedBy = account.Id)
