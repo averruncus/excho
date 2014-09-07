@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excho.Data.Models", "Excho.Data.Models\Excho.Data.Models.csproj", "{52520331-7F98-4B42-9CDE-6F23629ED492}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Excho.Trading", "Excho.Trading\Excho.Trading.fsproj", "{60DADF7B-0AC3-4FB8-B2D3-583DDDED0A34}"
